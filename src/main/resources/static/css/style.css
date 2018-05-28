@@ -1,0 +1,136 @@
+/***** General *****/
+
+body {
+    background-color: #e9ecec;
+}
+
+.container-sm {
+    max-width: 769px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content {
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.table-fixed {
+    table-layout: fixed;
+}
+
+.btn-fixed-bottom {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+}
+
+/***** Banner Header *****/
+
+.view {
+    height: 100vh;
+}
+
+#video_background {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1000;
+    overflow: hidden;
+}
+
+
+/***** Navbar *****/
+
+@media (min-width: 768px) {
+    .scrolling-navbar:not(.top-nav-collapse) {
+        background: transparent !important;
+    }
+}
+
+.navbar {
+    z-index: 99999;
+}
+
+
+/***** Login *****/
+
+#registro,
+#login {
+    top: 10%;
+    left: 4%;
+    right: 4%;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all .4s linear;
+}
+
+.girado {
+    transform: rotateY(180deg);
+}
+
+
+/***** Carrusel lista *****/
+
+.slider {
+    margin-bottom: 40px;
+    width: 100%;
+    height: 567px;
+    overflow: hidden;
+}
+
+.slider-list .slider-element {
+    float: left;
+    height: 566.06;
+}
+
+.arrowleft,
+.arrowright {
+    font-size: 5px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 3px;
+    background-color: red;
+}
+
+/***** CONTRATAR *****/
+
+select {
+    display: block!important;
+}
+
+/***** Buscador *****/
+
+#searchform{
+  display:inline;
+  font-size:1em;
+  border-radius: 8em;
+  border:0.1em solid rgba(218,208,190,1);
+  box-shadow:0 0 0.3em rgba(60,60,60,0.4);
+  padding:0.3em;
+  background:white;
+}
+#s{
+  transition:all 0.2s ease-out;
+  width:1px;
+  border-radius:0;
+  box-shadow:none;
+  outline: none;
+  padding:0;
+  margin:0;
+  border:0;
+  background-color: transparent;
+  opacity:0;
+}
+#s:focus{
+  width:8em;
+  opacity:1;
+}
