@@ -31,5 +31,12 @@ public class EmailsController {
 		emailService.supportEmail(user.getUsuario(), user.getEmail(), email.getSubject(), email.getMessage());		
 		return "redirect:/app";
 	}
+	// TODO Enviar emails a usuarios.
+	/*@PostMapping("/adminEmail")
+	public String sendAdminEmail(@PathVariable("id") Long id, SupportEmail email) {
+		User user = userService.findById(id);
+		emailService.adminEmail(user.getEmail(), email.getSubject(), email.getMessage());
+		return "redirect:/app";
+	}*/
 	
 }

@@ -72,4 +72,9 @@ public class OrdersServiceImp implements OrdersService {
 		return edit(o);
 	}
 
+	@Override
+	public List<Orders> findAllInactive() {
+		return repo.getInactiveOrders();
+	}
+
 }

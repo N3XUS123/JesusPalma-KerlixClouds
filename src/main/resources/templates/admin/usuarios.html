@@ -38,7 +38,8 @@
                                 <td th:text="${user.email}">Email</td>
                                 <td><span th:if="${user.admin}"><i class="fa fa-check text-success"></i></span><span th:unless="${user.admin}"><i class="fa fa-times text-danger"></i></span></td>
                                 <td>
-                                    <a href="" th:href="@{/admin/services(q=${user.usuario})}" title="Planes"><i class="fa fa-server"></i></a>
+                                	<a th:href="@{/admin/users/sendMail/{id}(id=${user.id})}" title="Enviar mensaje"><i class="fa fa-comments"></i></a>
+                                    <a href="" th:href="@{/admin/services(q=${user.usuario})}" title="Planes" class="ml-3"><i class="fa fa-server"></i></a>
                                     <a href="" th:href="@{/admin/users/admin/{id}(id=${user.id})}" class="mx-3" title="Privilegios"><i class="fa fa-user-secret text-primary"></i></a>
                                     <a href="" th:href="@{/admin/users/delete/{id}(id=${user.id})}" title="Borrar"><i class="fa fa-user-times text-danger"></i></a>
                                 </td>

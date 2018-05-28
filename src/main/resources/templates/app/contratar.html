@@ -3,7 +3,7 @@
 
 <head th:replace="fragments/head :: head"></head>
 
-<body>
+<body onload="contratar()">
 	<!-- Header -->
 	<header>
 		<!-- Navbar -->
@@ -181,21 +181,7 @@
 	</div>
 	<script th:replace="fragments/scripts :: script"></script>
 	<script th:if="${sinSaldo}">
-		toastr
-				.error('Error. No tienes saldo suficiente para solicitar ese producto.');
-	</script>
-	<script th:inline="javascript">
-		$('select').on('change', function() {
-			$("#ajaxContent").load("/app/ajax/product/" + this.value);
-		});
-		$('#meses').change(function() {
-
-			var meses = parseFloat($('#meses').val());
-			var precio = parseFloat($('#precio').text());
-
-			total = precio * meses;
-			$('#total').val(total);
-		});
+		toastr.error('Error. No tienes saldo suficiente para solicitar ese producto.');
 	</script>
 </body>
 

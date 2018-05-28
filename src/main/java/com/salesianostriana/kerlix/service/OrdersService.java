@@ -21,14 +21,14 @@ public interface OrdersService {
 	
 	public boolean comprobarPrecio(Orders o, User user);;
 	
-	Page<Orders> findAllPageable(Pageable pageable);
+	public Page<Orders> findAllPageable(Pageable pageable);
 	
-	Page<Orders> searchOrders(String string, Pageable pageable);
+	public Page<Orders> searchOrders(String string, Pageable pageable);
 	
 	public Orders addOrder(OrderProduct op);
 	
 	public Orders renewOrder(Orders o, int meses);
 
-	
+	public List<Orders> findAllInactive();
 	
 }

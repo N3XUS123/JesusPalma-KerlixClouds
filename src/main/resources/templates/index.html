@@ -333,16 +333,7 @@
 	</div>
 	<script th:replace="fragments/scripts :: script"></script>
 	<!-- Google Maps -->
-	<script type="text/javascript "
-		th:src="@{//maps.googleapis.com/maps/api/js?key=AIzaSyDA3Vxpyyb7q10OJX5ogGDKjd1TFcuUKi0}"></script>
-	<script>
-		var mapProp = {
-			center : new google.maps.LatLng(37.3804628, -6.0079459),
-			zoom : 16,
-		};
-		var map = new google.maps.Map(document.getElementById("googleMap"),
-				mapProp);
-	</script>
+	<script type="text/javascript" th:src="@{//maps.googleapis.com/maps/api/js?key=AIzaSyDA3Vxpyyb7q10OJX5ogGDKjd1TFcuUKi0}"></script>
 	<!-- Slider -->
 	<script type="text/javascript" th:src="@{~/js/slider.js}"></script>
 </body>
