@@ -8,7 +8,6 @@ import javax.persistence.Table;
 @Table(name = "Hosting")
 @DiscriminatorValue(value = "Hosting")
 public class Hosting extends Product {
-
 	private int dominio;
 	private int db;
 	private int ftp;

@@ -15,11 +15,6 @@ public class MainController {
 		return "index";
 	}
 
-	@GetMapping({ "/admin/", "/admin", "/admin/index" })
-	public String adminIndex(Model model) {
-		return "admin/index";
-	}
-
 	@GetMapping("/error")
 	public String error() {
 		return "error";

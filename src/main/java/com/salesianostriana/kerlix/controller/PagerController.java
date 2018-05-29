@@ -41,7 +41,7 @@ public class PagerController {
 	@Autowired
 	private OrdersService ordersService;
 
-	@GetMapping("/users")
+	@GetMapping({"/users", "", "/"})
 	public String showUsers(@RequestParam("l") Optional<Integer> pageSize,
 			@RequestParam("p") Optional<Integer> page, @RequestParam("d") Optional<String> dirAttribute,
 			@RequestParam("o") Optional<String> direction, @RequestParam("q") Optional<String> search, Model model) {
