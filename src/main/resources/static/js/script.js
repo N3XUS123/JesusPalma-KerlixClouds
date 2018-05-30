@@ -1,6 +1,9 @@
 /*** Inicializar wow ***/
 new WOW().init();
 
+/*** Inicializar AOS ***/
+AOS.init();
+
 /*** Login ***/
 function login() {
     $("button").removeClass("waves-effect waves-light");

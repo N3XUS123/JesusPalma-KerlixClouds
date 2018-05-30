@@ -21,7 +21,9 @@ public interface ProductService {
 	
 	public Product changeDisabled(Product p);
 	
-	Page<Product> findAllPageable(Pageable pageable);
+	public Page<Product> findAllPageable(Pageable pageable);
 	
 	public Page<Product> searchProduct(String evalSearch, Pageable pageable);
+	
+	public List<Product> FindThreeRandomProducts();
 }

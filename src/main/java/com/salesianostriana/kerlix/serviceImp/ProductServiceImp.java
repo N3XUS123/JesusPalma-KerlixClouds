@@ -58,4 +58,11 @@ public class ProductServiceImp implements ProductService {
 	public Page<Product> searchProduct(String evalSearch, Pageable pageable) {
 		return repo.findAllByTipoIgnoreCaseContaining(evalSearch, pageable);
 	}
+
+	@Override
+	public List<Product> FindThreeRandomProducts() {
+		return repo.findThreeRandomProduct();
+	}
+	
+	
 }

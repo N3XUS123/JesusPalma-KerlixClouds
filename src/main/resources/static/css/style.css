@@ -1,7 +1,9 @@
 /***** General *****/
 
 body {
-    background-color: #e9ecec;
+    background-image: url(../img/fondo.jpg);
+    background-position: fixed;
+	background-attachment: fixed;
 }
 
 .container-sm {
