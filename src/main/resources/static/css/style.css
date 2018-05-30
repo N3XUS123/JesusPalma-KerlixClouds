@@ -6,6 +6,10 @@ body {
 	background-attachment: fixed;
 }
 
+#main {
+	background: #e9ecec;
+}
+
 .container-sm {
     max-width: 769px;
     margin-left: auto;
@@ -31,6 +35,9 @@ body {
 	right: 20px;
 }
 
+#granim-canvas {
+	z-index: -99999;
+}
 /***** Banner Header *****/
 
 .view {

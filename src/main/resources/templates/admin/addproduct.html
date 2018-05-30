@@ -7,7 +7,7 @@
     <header th:replace="fragments/adminHeader :: header"></header>
     <!-- Body -->
     <div class="main-wrapper my-4">
-        <div class="container content pb-3 pt-3 px-5 wow fadeInLeft">
+        <div class="container content pb-3 pt-3 px-5" data-aos="flip-up" data-aos-duration="800">   
             <h2>Añadir Producto</h2>
             <hr>
             <!--Panel 1-->
@@ -29,45 +29,45 @@
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 <label for="dominio">Dominios</label>
-                                <input th:field="*{dominio}" type="number" class="form-control" id="dominio">
+                                <input th:field="*{dominio}" type="number" class="form-control" id="dominio" required>
                             </div>
                             <div class="form-group col-md-1 mx-0 px-0 my-0 py-0"></div>
                             <div class="form-group col-md-3">
                                 <label for="db">DBs</label>
-                                <input th:field="*{db}" type="number" class="form-control" id="db">
+                                <input th:field="*{db}" type="number" class="form-control" id="db" required>
                             </div>
                             <div class="form-group col-md-1 mx-0 px-0 my-0 py-0"></div>
                             <div class="form-group col-md-3">
                                 <label for="alm">Almacenamiento</label>
-                                <input th:field="*{almacenamiento}" type="number" class="form-control" id="alm">
+                                <input th:field="*{almacenamiento}" type="number" class="form-control" id="almHost" required>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="email">Cuentas Email</label>
-                                <input th:field="*{email}" type="number" class="form-control" id="email">
+                                <input th:field="*{email}" type="number" class="form-control" id="email" required>
                             </div>
                             <div class="form-group col-md-1 mx-0 px-0 my-0 py-0"></div>
                             <div class="form-group col-md-3">
                                 <label for="abanda">Ancho banda</label>
-                                <input th:field="*{anchoBanda}" type="text" class="form-control" id="abanda">
+                                <input th:field="*{anchoBanda}" type="text" class="form-control" id="abandaHost" required>
                             </div>
                             <div class="form-group col-md-1 mx-0 px-0 my-0 py-0"></div>
                             <div class="form-group col-md-3">
                                 <label for="ftp">Usuarios FTP</label>
-                                <input th:field="*{ftp}" type="number" class="form-control" id="ftp">
+                                <input th:field="*{ftp}" type="number" class="form-control" id="ftp" required>
                             </div>
                             <div class="form-group col-md-5">
                                 <label for="nombrePlan">Nombre</label>
-                                <input th:field="*{tipo}" type="text" class="form-control" id="nombrePlan" placeholder="Básico / Premium">
+                                <input th:field="*{tipo}" type="text" class="form-control" id="nombrePlanHost" placeholder="Básico / Premium" required>
                             </div>
                             <div class="col-md-1"></div>
                             <div class="form-group col-md-5">
                                 <label for="mensualidad">Mensualidad</label>
-                                <input th:field="*{mensualidad}" type="number" id="mensualdad" class="form-control">
+                                <input th:field="*{mensualidad}" type="number" id="mensualidadHost" class="form-control" required>
                             </div>
                         </div>
                         <hr>
                         <div class="text-right">
-                            <button type="submit" class="btn btn-primary btn-md">Añadir producto</button>
+                            <button type="submit" id="addHost" class="btn btn-primary btn-md">Añadir producto</button>
                         </div>
                     </form>
                 </div>
@@ -78,45 +78,45 @@
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 <label for="cpu">CPU</label>
-                                <input th:field="*{cpu}" type="number" class="form-control" id="cpu">
+                                <input th:field="*{cpu}" type="number" class="form-control" id="cpu" required>
                             </div>
                             <div class="form-group col-md-1 mx-0 px-0 my-0 py-0"></div>
                             <div class="form-group col-md-3">
                                 <label for="ram">Memoria RAM</label>
-                                <input th:field="*{capacidadRam}" type="number" class="form-control" id="ram">
+                                <input th:field="*{capacidadRam}" type="number" class="form-control" id="ram" required>
                             </div>
                             <div class="form-group col-md-1 mx-0 px-0 my-0 py-0"></div>
                             <div class="form-group col-md-3">
                                 <label for="alma">Almacenamiento</label>
-                                <input th:field="*{almacenamiento}" type="number" class="form-control" id="alma">
+                                <input th:field="*{almacenamiento}" type="number" class="form-control" id="almServer" required>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="red">Velocidad de Red</label>
-                                <input th:field="*{velocidadRed}" type="number" class="form-control" id="red">
+                                <input th:field="*{velocidadRed}" type="number" class="form-control" id="red" required>
                             </div>
                             <div class="form-group col-md-1 mx-0 px-0 my-0 py-0"></div>
                             <div class="form-group col-md-3">
                                 <label for="anbanda">Ancho banda</label>
-                                <input th:field="*{anchoBanda}" type="text" class="form-control" id="anbanda">
+                                <input th:field="*{anchoBanda}" type="text" class="form-control" id="aBandaServer" required>
                             </div>
                             <div class="form-group col-md-1 mx-0 px-0 my-0 py-0"></div>
                             
                             <div class="form-group col-md-3 switch">
-								<label>Off<input th:field="*{ssd}" type="checkbox"><span class="lever"></span>On</label>
+								<label>Off<input id="ssd" th:field="*{ssd}" type="checkbox"><span class="lever"></span>On</label>
                             </div>
                             <div class="form-group col-md-5">
                                 <label for="nombrePlan">Nombre</label>
-                                <input th:field="*{tipo}" type="text" class="form-control" id="nombrePlan" placeholder="Básico / Premium">
+                                <input th:field="*{tipo}" type="text" class="form-control" id="nombrePlanServer" placeholder="Básico / Premium" required>
                             </div>
                             <div class="form-group col-md-1 mx-0 px-0 my-0 py-0"></div>
                             <div class="form-group col-md-5">
                                 <label for="mensualidad">Mensualidad</label>
-                                <input th:field="*{mensualidad}" type="number" id="mensualdad" class="form-control">
+                                <input th:field="*{mensualidad}" type="number" id="mensualdadServer" class="form-control" required>
                             </div>
                         </div>
                         <hr>
                         <div class="text-right">
-                            <button type="submit" class="btn btn-primary btn-md">Añadir producto</button>
+                            <button id="addServer" type="submit" class="btn btn-primary btn-md">Añadir producto</button>
                         </div>
                     </form>
                 </div>
@@ -125,6 +125,7 @@
         </div>
     </div>
     <script th:replace="fragments/scripts :: script"></script>
+    <script th:src="@{~/js/adScript.js}"></script>
 </body>
 
 </html>

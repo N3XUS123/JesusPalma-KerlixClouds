@@ -92,12 +92,6 @@
 			<groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>
 		</dependency>
-		<!-- Infinite Scroll (Webjars) -->
-		<dependency>
-			<groupId>org.webjars.npm</groupId>
-			<artifactId>infinite-scroll</artifactId>
-			<version>3.0.4</version>
-		</dependency>
 		<!-- AOS (Webjars) -->
 		<dependency>
 			<groupId>org.webjars.npm</groupId>
