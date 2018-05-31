@@ -28,7 +28,5 @@ public interface OrdersService {
 	public Orders addOrder(OrderProduct op);
 	
 	public Orders renewOrder(Orders o, int meses);
-
-	public List<Orders> findAllInactive();
 	
 }

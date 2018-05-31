@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.salesianostriana.kerlix.formbean.SupportEmail;
 import com.salesianostriana.kerlix.service.UserService;
 
 @Controller
@@ -28,9 +29,10 @@ public class UserAdminController {
 		return "redirect:/admin/users";
 	}
 
-	@GetMapping("/services/{id}")
-	public String userServices(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("userService", userService.findById(id));
-		return "/admin/usuarios :: userService";
+	@GetMapping("/ajax/message/{id}")
+	public String ajaxRenovar(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("userEmail", userService.findById(id));
+		model.addAttribute("email", new SupportEmail());
+		return "/admin/usuarios :: email";
 	}
 }

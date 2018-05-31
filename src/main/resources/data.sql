@@ -16,4 +16,5 @@ insert into Product (almacenamiento, anchoBanda, disabled, mensualidad, tipo, ty
 insert into Hosting (db, dominio, email, ftp, id) values (10, 25, 30, 30, 7)
 insert into Product (almacenamiento, anchoBanda, disabled, mensualidad, tipo, type) values (2000, 15000, false, 90, 'Empresarial', 'Server')
 insert into Server (cpu, capacidadram, velocidadred, ssd, id) values (36, 32, 1000, true, 8)
-
+insert into Orders (fechaCaducidad, fechaContratacion, nombre, producto_id, usuario_id) values ('2019-05-26', '2018-05-30', 'Kerlix', 8, 1)
+insert into User_orders (User_id, orders_id) values (1, 1)

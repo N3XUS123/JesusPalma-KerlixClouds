@@ -3,11 +3,11 @@
 body {
     background-image: url(../img/fondo.jpg);
     background-position: fixed;
-	background-attachment: fixed;
+    background-attachment: fixed;
 }
 
 #main {
-	background: #e9ecec;
+    background: #e9ecec;
 }
 
 .container-sm {
@@ -30,14 +30,21 @@ body {
 }
 
 .btn-fixed-bottom {
-	position: fixed;
-	bottom: 20px;
-	right: 20px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }
 
 #granim-canvas {
-	z-index: -99999;
+    z-index: -99999;
 }
+
+button.adminMessage {
+    background-color: transparent !important;
+    border: none!important;
+}
+
+
 /***** Banner Header *****/
 
 .view {
@@ -110,36 +117,40 @@ body {
     background-color: red;
 }
 
+
 /***** CONTRATAR *****/
 
 select {
     display: block!important;
 }
 
+
 /***** Buscador *****/
 
-#searchform{
-  display:inline;
-  font-size:1em;
-  border-radius: 8em;
-  border:0.1em solid rgba(218,208,190,1);
-  box-shadow:0 0 0.3em rgba(60,60,60,0.4);
-  padding:0.3em;
-  background:white;
+#searchform {
+    display: inline;
+    font-size: 1em;
+    border-radius: 8em;
+    border: 0.1em solid rgba(218, 208, 190, 1);
+    box-shadow: 0 0 0.3em rgba(60, 60, 60, 0.4);
+    padding: 0.3em;
+    background: white;
 }
-#s{
-  transition:all 0.2s ease-out;
-  width:1px;
-  border-radius:0;
-  box-shadow:none;
-  outline: none;
-  padding:0;
-  margin:0;
-  border:0;
-  background-color: transparent;
-  opacity:0;
+
+#s {
+    transition: all 0.2s ease-out;
+    width: 1px;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+    opacity: 0;
 }
-#s:focus{
-  width:8em;
-  opacity:1;
+
+#s:focus {
+    width: 8em;
+    opacity: 1;
 }

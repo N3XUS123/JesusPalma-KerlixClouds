@@ -20,8 +20,7 @@ import com.salesianostriana.kerlix.model.User;
 
 @Configuration
 public class SecurityConfiguration {
-	
-	
+
 	@Bean
 	public FilterRegistrationBean<SecurityFilter> filterSecurityBean() {
 		FilterRegistrationBean<SecurityFilter> registro = new FilterRegistrationBean<>();
@@ -30,8 +29,7 @@ public class SecurityConfiguration {
 		registro.setName("securityFilter");
 		return registro;
 	}
-	
-	
+
 	@Bean
 	public FilterRegistrationBean<SecurityAdminFilter> adminFilterSecurityBean() {
 		FilterRegistrationBean<SecurityAdminFilter> registro = new FilterRegistrationBean<>();
@@ -40,18 +38,16 @@ public class SecurityConfiguration {
 		registro.setName("securityAdminFilter");
 		return registro;
 	}
-		
+
 	@Bean("securityFilter")
 	public SecurityFilter securityFilter() {
 		return new SecurityFilter();
 	}
-	
-	class SecurityFilter implements Filter  {
+
+	class SecurityFilter implements Filter {
 
 		@Override
 		public void init(FilterConfig filterConfig) throws ServletException {
-			// TODO Auto-generated method stub
-			
 		}
 
 		@Override
@@ -66,28 +62,26 @@ public class SecurityConfiguration {
 				return;
 			} else
 				chain.doFilter(req, resp);
-			
+
 		}
+
 		@Override
 		public void destroy() {
-			// TODO Auto-generated method stub
-			
+
 		}
-		
+
 	}
-	
-	
+
 	@Bean("securityAdminFilter")
 	public SecurityAdminFilter securityAdminFilter() {
 		return new SecurityAdminFilter();
 	}
-	
+
 	class SecurityAdminFilter implements Filter {
 
 		@Override
 		public void init(FilterConfig filterConfig) throws ServletException {
-			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
@@ -109,10 +103,9 @@ public class SecurityConfiguration {
 
 		@Override
 		public void destroy() {
-			// TODO Auto-generated method stub
-			
+
 		}
-		
+
 	}
 
 }

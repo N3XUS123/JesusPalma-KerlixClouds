@@ -17,22 +17,22 @@
                         <!--Table head-->
                         <thead>
                             <tr>
-	                            <th><span>Usuario</span> 
-	                                <a th:href="@{/admin/services(l=${selectedPageSize}, p=1, d=usuario, o=DESC, q=${search})}"><i class="fa fa-angle-up"></i></a>
-	                            	<a th:href="@{/admin/services(l=${selectedPageSize}, p=1, d=usuario, o=ASC, q=${search})}"><i class="fa fa-angle-down"></i></a>
-								</th>
-								<th><span>Plan</span> 
-	                            	<a th:href="@{/admin/services(l=${selectedPageSize}, p=1, d=producto, o=DESC, q=${search})}"><i class="fa fa-angle-up"></i></a>
-	                            	<a th:href="@{/admin/services(l=${selectedPageSize}, p=1, d=producto, o=ASC, q=${search})}"><i class="fa fa-angle-down"></i></a>
-	                            </th>
-	                            <th><span>Servicio</span> 
-	                            	<a th:href="@{/admin/services(l=${selectedPageSize}, p=1, d=nombre, o=DESC, q=${search})}"><i class="fa fa-angle-up"></i></a>
-	                            	<a th:href="@{/admin/services(l=${selectedPageSize}, p=1, d=nombre, o=ASC, q=${search})}"><i class="fa fa-angle-down"></i></a>
-	                            </th>
-	                            <th><span>Tiempo restante</span> 
-	                            	<a th:href="@{/admin/services(l=${selectedPageSize}, p=1, d=fechaCaducidad, o=DESC, q=${search})}"><i class="fa fa-angle-up"></i></a>
-	                            	<a th:href="@{/admin/services(l=${selectedPageSize}, p=1, d=fechaCaducidad, o=ASC, q=${search})}"><i class="fa fa-angle-down"></i></a>
-	                            </th>
+                                <th><span>Usuario</span>
+                                    <a th:href="@{/admin/services(l=${selectedPageSize}, p=1, d=usuario, o=DESC, q=${search})}"><i class="fa fa-angle-up"></i></a>
+                                    <a th:href="@{/admin/services(l=${selectedPageSize}, p=1, d=usuario, o=ASC, q=${search})}"><i class="fa fa-angle-down"></i></a>
+                                </th>
+                                <th><span>Plan</span>
+                                    <a th:href="@{/admin/services(l=${selectedPageSize}, p=1, d=producto, o=DESC, q=${search})}"><i class="fa fa-angle-up"></i></a>
+                                    <a th:href="@{/admin/services(l=${selectedPageSize}, p=1, d=producto, o=ASC, q=${search})}"><i class="fa fa-angle-down"></i></a>
+                                </th>
+                                <th><span>Servicio</span>
+                                    <a th:href="@{/admin/services(l=${selectedPageSize}, p=1, d=nombre, o=DESC, q=${search})}"><i class="fa fa-angle-up"></i></a>
+                                    <a th:href="@{/admin/services(l=${selectedPageSize}, p=1, d=nombre, o=ASC, q=${search})}"><i class="fa fa-angle-down"></i></a>
+                                </th>
+                                <th><span>Tiempo restante</span>
+                                    <a th:href="@{/admin/services(l=${selectedPageSize}, p=1, d=fechaCaducidad, o=DESC, q=${search})}"><i class="fa fa-angle-up"></i></a>
+                                    <a th:href="@{/admin/services(l=${selectedPageSize}, p=1, d=fechaCaducidad, o=ASC, q=${search})}"><i class="fa fa-angle-down"></i></a>
+                                </th>
                             </tr>
                         </thead>
                         <!--Table head-->
@@ -40,13 +40,13 @@
                         <!--Table body-->
                         <tbody>
                             <tr th:each="service : ${services}">
-                                <td th:text="${service.usuario.usuario}"></td>                       
+                                <td th:text="${service.usuario.usuario}"></td>
                                 <td>
-                               		<span th:text="${service.producto.getDiscriminatorValue()}"></span>
-                                	<span th:text="${service.producto.tipo}"></span>
+                                    <span th:text="${service.producto.getDiscriminatorValue()}"></span>
+                                    <span th:text="${service.producto.tipo}"></span>
                                 </td>
-                                 <td th:text="${service.nombre}">Usuario</td>
-                                 <td><span th:text="${service.getDiasRestantes()}"></span> dias</td>
+                                <td th:text="${service.nombre}">Usuario</td>
+                                <td><span th:text="${service.getDiasRestantes()}"></span> dias</td>
                             </tr>
                         </tbody>
                         <!--Table body-->
@@ -55,15 +55,15 @@
                     <!--Table-->
                 </div>
             </div>
-       <div class="my-0 form-row">
-            	<div class="ml-3 mr-auto form-group pt-4">
-	            	<form role="search" method="GET" id="searchform" action="" th:action="@{/admin/services}">
-						<label for="s">
+            <div class="my-0 form-row">
+                <div class="ml-3 mr-auto form-group pt-4">
+                    <form role="search" method="GET" id="searchform" action="" th:action="@{/admin/services}">
+                        <label for="s">
 					    	<i class="fa fa-search"></i>
 						</label>
-						<input name="q" type="text" th:value="${search}" placeholder="search" class="" id="s" />
-					</form>
-				</div>
+                        <input name="q" type="text" th:value="${search}" placeholder="search" class="" id="s" />
+                    </form>
+                </div>
                 <div class="ml-auto mr-1 form-group pt-3">
                     <nav th:if="${services.totalPages != 1}" aria-label="pagination example">
                         <ul class="pagination ">
@@ -108,18 +108,19 @@
     </div>
     <script th:replace="fragments/scripts :: script"></script>
     <script th:inline="javascript">
-    $(document).ready(function() {
-		changePageAndSize();
-	});
-	function changePageAndSize() {
-		$('#pageSizeSelect').change(function() {
-			/*<![CDATA[*/
-		    var dirAttribute = /*[[${dirAttribute}]]*/ 'id';
-		    var direction = /*[[${direction}]]*/ 'ASC';
-		    var search = /*[[${search}]]*/ '';
-		    window.location.replace("?l=" + this.value + "&p=1&d=" + dirAttribute + "&o=" + direction + "&q=" + search);
-		/*]]>*/
-		});
-	}
-	</script>
+        $(document).ready(function() {
+            changePageAndSize();
+        });
+
+        function changePageAndSize() {
+            $('#pageSizeSelect').change(function() {
+                /*<![CDATA[*/
+                var dirAttribute = /*[[${dirAttribute}]]*/ 'id';
+                var direction = /*[[${direction}]]*/ 'ASC';
+                var search = /*[[${search}]]*/ '';
+                window.location.replace("?l=" + this.value + "&p=1&d=" + dirAttribute + "&o=" + direction + "&q=" + search);
+                /*]]>*/
+            });
+        }
+    </script>
 </body>

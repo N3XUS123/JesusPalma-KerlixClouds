@@ -59,7 +59,7 @@ public class OrdersController {
 	}
 
 	@PostMapping("/addOrder")
-	public String addService(@ModelAttribute OrderProduct order, Model model) {
+	public String addService(@ModelAttribute("order") OrderProduct order, Model model) {
 		Orders o = orderService.addOrder(order);
 		if (orderService.comprobarPrecio(o, (User) session.getAttribute("usuarioActual"))) {
 			User user = userService.addOrder(o, (User) session.getAttribute("usuarioActual"));
@@ -69,7 +69,6 @@ public class OrdersController {
 			model.addAttribute("sinSaldo", "No hay saldo");
 			model.addAttribute("loginUser", session.getAttribute("usuarioActual"));
 			model.addAttribute("products", productService.findAllAble());
-			model.addAttribute("order", new Orders());
 			return "/app/contratar";
 		}
 	}
@@ -84,15 +83,12 @@ public class OrdersController {
 	@GetMapping("/renovar")
 	public String renovar(Long id, OrderProduct o, Model model) {
 		User tempUs = (User) session.getAttribute("usuarioActual");
-		if (orderService.comprobarPrecio(orderService.findById(id), tempUs)) {
-			System.out.println(tempUs.getSaldo());
+		if (orderService.comprobarPrecio(orderService.findById(id), tempUs) || orderService.findById(id).getMeses()+o.getMeses() <= 24) {
 			Orders or = orderService.renewOrder(orderService.findById(id), o.getMeses());
-			System.out.println(tempUs.getSaldo());
 			tempUs = userService.renewOrder(or, tempUs, o.getMeses());
-			System.out.println(tempUs.getSaldo());	
 			return "redirect:/app";
 		} else {
-			model.addAttribute("sinSaldo", "No hay saldo");
+			model.addAttribute("sinSaldo");
 			model.addAttribute("loginUser", session.getAttribute("usuarioActual"));
 			return "/app/contratado";
 		} 

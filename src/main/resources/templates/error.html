@@ -3,19 +3,20 @@
 
 <head th:replace="fragments/head :: head"></head>
 <style>
+
 </style>
 
 <body onload="error()">
-	<canvas id="granim-canvas" class="position-absolute w-100 h-100"></canvas>
-		<div class="pt-5 mx-auto text-center">
-			<h1 class="display-1 text-primary">
-				4<i class="fa  fa-spin fa-cog fa-2x"></i>4
-			</h1>
-			<h1 class="display-3">ERROR</h1>
-			<p class="lower-case">La web que buscabas no existe</p>
-			<a class="btn btn-primary" th:href="@{/}">Volver al inicio</a>
-		</div>
-	<script th:replace="fragments/scripts :: script"></script>
+    <canvas id="granim-canvas" class="position-absolute w-100 h-100"></canvas>
+    <div class="pt-5 mx-auto text-center">
+        <h1 class="display-1 text-primary">
+            4<i class="fa  fa-spin fa-cog fa-2x"></i>4
+        </h1>
+        <h1 class="display-3">ERROR</h1>
+        <p class="lower-case">La web que buscabas no existe</p>
+        <a class="btn btn-primary" th:href="@{/}">Volver al inicio</a>
+    </div>
+    <script th:replace="fragments/scripts :: script"></script>
 </body>
 
 </html>

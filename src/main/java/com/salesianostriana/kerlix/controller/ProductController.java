@@ -20,13 +20,7 @@ public class ProductController {
 
 	@Autowired
 	ProductService productService;
-	
-	/*@GetMapping({"", "/"})
-	public String productList(Model model) {
-		model.addAttribute("products", productService.findAll());
-		return "/admin/products";
-	}*/
-	
+		
 	@GetMapping("/add")
 	public String newProd(Model model) {
 		model.addAttribute("product", new CreateProduct());

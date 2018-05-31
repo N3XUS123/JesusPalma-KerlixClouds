@@ -4,62 +4,49 @@
 <head th:replace="fragments/head :: head"></head>
 
 <body>
-	<!-- Header -->
-	<header>
-		<!-- Navbar -->
-		<nav class="navbar navbar-expand-lg navbar-dark special-color-dark">
-			<div class="container wow slideInDown">
-				<!-- Navbar brand -->
-				<a class="navbar-brand text-light">Kerlix</a>
+    <!-- Header -->
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark special-color-dark">
+            <div class="container wow slideInDown">
+                <!-- Navbar brand -->
+                <a class="navbar-brand text-light">Kerlix</a>
 
-				<!-- Collapse button -->
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#basicExampleNav" aria-controls="basicExampleNav"
-					aria-expanded="false" aria-label="Toggle navigation">
+                <!-- Collapse button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-				<!-- Collapsible content -->
-				<div class="collapse navbar-collapse" id="basicExampleNav">
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="basicExampleNav">
 
-					<!-- Links -->
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item"><a class="nav-link" href="#"
-							th:href="@{/}">Inicio</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"
-							th:href="@{/app}">Mis servicios</a></li>
-					</ul>
-					<!-- Links -->
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item dropdown"><a
-							class="text-capitalize nav-link dropdown-toggle waves-effect waves-light"
-							id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="true"> <i
-								class="fa fa-user"></i> <span th:text=${loginUser.usuario}></span></a>
-							<div class="dropdown-menu dropdown-menu-right dropdown-ins"
-								aria-labelledby="navbarDropdownMenuLink-4">
-								<a class="dropdown-item waves-effect waves-light" href="#"
-									th:href="@{/app/perfil}">Perfil</a> <a
-									class="dropdown-item waves-effect waves-light"
-									th:if=${loginUser.admin} th:href="@{/admin/}">Administración</a>
-								<a class="dropdown-item waves-effect waves-light" href="#"
-									th:href="@{/logout}">Cerrar sesión</a>
-							</div></li>
-					</ul>
-				</div>
-				<!-- Collapsible content -->
-			</div>
-		</nav>
-	</header>
-	<!-- Body -->
-	<div class="main-wrapper my-5">
-		<div class="container wow fadeInLeft">
-			<div class="row">
-				<div class="col-lg-5 offset-1">
-					<form th:action="@{/app/addOrder}" th:object="${order}" action=""
-						method="post">
-						<select id="product" name="product" class="custom-select mb-5"
-							th:field="*{producto}" required>
+                    <!-- Links -->
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="#" th:href="@{/}">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" th:href="@{/app}">Mis servicios</a></li>
+                    </ul>
+                    <!-- Links -->
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="text-capitalize nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fa fa-user"></i> <span th:text=${loginUser.usuario}></span></a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-ins" aria-labelledby="navbarDropdownMenuLink-4">
+                                <a class="dropdown-item waves-effect waves-light" href="#" th:href="@{/app/perfil}">Perfil</a> <a class="dropdown-item waves-effect waves-light" th:if=${loginUser.admin} th:href="@{/admin/}">Administración</a>
+                                <a class="dropdown-item waves-effect waves-light" href="#" th:href="@{/logout}">Cerrar sesión</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Collapsible content -->
+            </div>
+        </nav>
+    </header>
+    <!-- Body -->
+    <div class="main-wrapper my-5">
+        <div class="container wow fadeInLeft">
+            <div class="row">
+                <div class="col-lg-5 offset-1">
+                    <form th:action="@{/app/addOrder}" th:object="${order}" action="" method="post">
+                        <select id="product" name="product" class="custom-select mb-5" th:field="*{producto}" required>
 							<option selected="selected" value="">Seleccione un
 								producto</option>
 							<option th:each="product : ${products}"
@@ -68,121 +55,112 @@
 									th:text="${product.tipo}"></span> [<span
 									th:text="${product.mensualidad}"></span>€/mes]
 							</option>
-						</select> 
-						<input th:field="*{nombre}" class="form-control" type="text"
-							name="nombre" id="nombre" placeholder="Nombre Servicio" required>
-						<div class="input-group py-0 mt-5 mb-3">
-							<div class="input-group-prepend">
-								<a id="calcular" class="input-group-text">Meses / Precio</a>
-							</div>
-							<input id="meses" th:field="*{meses}" type="number"
-								class="form-control py-0" min="1" max="12" required> <input
-								id="total" type="text" class="form-control py-0" min="0"
-								disabled>
-						</div>
-						<div class="text-right">
-							<button id="contratar" type="submit" class="btn btn-primary btn-sm mb-5">Seleccionar</button>
-						</div>
-					</form>
-				</div>
-				<div class="col-lg-4 offset-1">
-					<!--Pricing card-->
-					<div id="ajaxContent">
-						<div th:fragment="prod" th:if="${prod!=null}"
-							class="card pricing-card">
-							<!--Price-->
-							<div class="price header blue">
-								<h1 id="precio" th:value="${prod.mensualidad}"
-									th:text="${prod.mensualidad}"></h1>
-								<div class="version">
-									<h5
-										th:text="${prod.getDiscriminatorValue()} + ' ' + ${prod.tipo} ">Basic</h5>
-								</div>
-							</div>
-							<!--Price-->
+						</select>
+                        <input th:field="*{nombre}" class="form-control" type="text" name="nombre" id="nombre" placeholder="Nombre Servicio" required>
+                        <div class="input-group py-0 mt-5 mb-3">
+                            <div class="input-group-prepend">
+                                <a id="calcular" class="input-group-text">Meses / Precio</a>
+                            </div>
+                            <input id="meses" th:field="*{meses}" type="number" class="form-control py-0" min="1" max="12" required> <input id="total" type="text" class="form-control py-0" min="0" disabled>
+                        </div>
+                        <div class="text-right">
+                            <button id="contratar" type="submit" class="btn btn-primary btn-sm mb-5">Seleccionar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4 offset-1">
+                    <!--Pricing card-->
+                    <div id="ajaxContent">
+                        <div th:fragment="prod" th:if="${prod!=null}" class="card pricing-card">
+                            <!--Price-->
+                            <div class="price header blue">
+                                <h1 id="precio" th:value="${prod.mensualidad}" th:text="${prod.mensualidad}"></h1>
+                                <div class="version">
+                                    <h5 th:text="${prod.getDiscriminatorValue()} + ' ' + ${prod.tipo} ">Basic</h5>
+                                </div>
+                            </div>
+                            <!--Price-->
 
-							<!--Features-->
-							<div class="card-body striped">
-								<ul th:if="${prod.getDiscriminatorValue() != 'Hosting'}">
-									<li>
-										<p class="mt-1">
-											CPU: <span th:text="${prod.cpu}"></span> Ghz
-										</p>
-									</li>
-									<li>
-										<p class="mt-1">
-											RAM: <span th:text="${prod.capacidadRam}"></span> GB
-										</p>
-									</li>
-									<li>
-										<p class="mt-1">
-											Capacidad: <span th:text="${prod.almacenamiento}"></span> Gb
-										</p>
-									</li>
-									<li>
-										<p class="mt-1">
-											Ancho de banda: <span th:text="${prod.anchoBanda}"></span> Gb
-										</p>
-									</li>
-									<li>
-										<p class="mt-1">
-											Velocidad de Red: <span th:text="${prod.velocidadRed}"></span>
-											Gb/s
-										</p>
-									</li>
-									<li>
-										<p class="mt-1">
-											SSD: <span th:if="${prod.ssd}">Si</span><span
-												th:if="${!prod.ssd}">No</span>
-										</p>
-									</li>
-								</ul>
-								<ul th:if="${prod.getDiscriminatorValue() != 'Server'}">
-									<li>
-										<p class="mt-1">
-											Cantidad dominios: <span th:text="${prod.dominio}"></span>
-										</p>
-									</li>
-									<li>
-										<p class="mt-1">
-											Cantidad DBs: <span th:text="${prod.db}"></span>
-										</p>
-									</li>
-									<li>
-										<p class="mt-1">
-											Capacidad: <span th:text="${prod.almacenamiento}"></span> Gb
-										</p>
-									</li>
-									<li>
-										<p class="mt-1">
-											Usuarios FTP: <span th:text="${prod.ftp}"></span>
-										</p>
-									</li>
-									<li>
-										<p class="mt-1">
-											Ancho de banda: <span th:text="${prod.anchoBanda}"></span> Gb
-										</p>
-									</li>
-									<li>
-										<p class="mt-1">
-											Cuentas Email: <span th:text="${prod.email}"></span>
-										</p>
-									</li>
-								</ul>
-							</div>
-							<!--Features-->
+                            <!--Features-->
+                            <div class="card-body striped">
+                                <ul th:if="${prod.getDiscriminatorValue() != 'Hosting'}">
+                                    <li>
+                                        <p class="mt-1">
+                                            CPU: <span th:text="${prod.cpu}"></span> Ghz
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="mt-1">
+                                            RAM: <span th:text="${prod.capacidadRam}"></span> GB
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="mt-1">
+                                            Capacidad: <span th:text="${prod.almacenamiento}"></span> Gb
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="mt-1">
+                                            Ancho de banda: <span th:text="${prod.anchoBanda}"></span> Gb
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="mt-1">
+                                            Velocidad de Red: <span th:text="${prod.velocidadRed}"></span> Gb/s
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="mt-1">
+                                            SSD: <span th:if="${prod.ssd}">Si</span><span th:if="${!prod.ssd}">No</span>
+                                        </p>
+                                    </li>
+                                </ul>
+                                <ul th:if="${prod.getDiscriminatorValue() != 'Server'}">
+                                    <li>
+                                        <p class="mt-1">
+                                            Cantidad dominios: <span th:text="${prod.dominio}"></span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="mt-1">
+                                            Cantidad DBs: <span th:text="${prod.db}"></span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="mt-1">
+                                            Capacidad: <span th:text="${prod.almacenamiento}"></span> Gb
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="mt-1">
+                                            Usuarios FTP: <span th:text="${prod.ftp}"></span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="mt-1">
+                                            Ancho de banda: <span th:text="${prod.anchoBanda}"></span> Gb
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="mt-1">
+                                            Cuentas Email: <span th:text="${prod.email}"></span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--Features-->
 
-						</div>
-						<!--Pricing card-->
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script th:replace="fragments/scripts :: script"></script>
-	<script th:if="${sinSaldo}">
-		toastr.error('Error. No tienes saldo suficiente para solicitar ese producto.');
-	</script>
+                        </div>
+                        <!--Pricing card-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script th:replace="fragments/scripts :: script"></script>
+    <script th:if="${sinSaldo}">
+        toastr.error('Error. No tienes saldo suficiente para solicitar ese producto.');
+    </script>
 </body>
 
 </html>
