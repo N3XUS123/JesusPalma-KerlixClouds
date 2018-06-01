@@ -1,10 +1,31 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/head :: head"></head>
-<style>
+<head>
+    <!-- Meta Tags -->
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Kerlix, web con los mejores servidores y hostings al mejor precio, baratos y de calidad. Página de error." />
+    <title>Kerlix - Error 404</title>
 
-</style>
+    <!-- Google Fonts -->
+    <link th:href="@{//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700}" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}" />
+
+    <!-- Material Design Bootstrap -->
+    <link th:href="@{~/css/mdb.min.css}" rel="stylesheet">
+
+    <!-- AOS  -->
+    <link th:href="@{/webjars/github-com-michalsnik-aos/2.1.1/aos.css}" rel="stylesheet" />
+
+    <!-- CSS Adicional -->
+    <link th:href="@{~/css/style.css}" rel="stylesheet">
+</head>
 
 <body onload="error()">
     <canvas id="granim-canvas" class="position-absolute w-100 h-100"></canvas>

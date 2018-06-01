@@ -1,7 +1,31 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/head :: head"></head>
+<head>
+    <!-- Meta Tags -->
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Kerlix, web con los mejores servidores y hostings al mejor precio, baratos y de calidad. Gestión de Usuarios" />
+    <title>Kerlix - Gestión de Usuarios</title>
+
+    <!-- Google Fonts -->
+    <link th:href="@{//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700}" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}" />
+
+    <!-- Material Design Bootstrap -->
+    <link th:href="@{~/css/mdb.min.css}" rel="stylesheet">
+
+    <!-- AOS  -->
+    <link th:href="@{/webjars/github-com-michalsnik-aos/2.1.1/aos.css}" rel="stylesheet" />
+
+    <!-- CSS Adicional -->
+    <link th:href="@{~/css/style.css}" rel="stylesheet">
+</head>
 
 <body>
     <header th:replace="fragments/adminHeader :: header"></header>
@@ -76,7 +100,7 @@
                                     <button type="button" th:value="${user.id}" class="adminMessage" title="Enviar mensaje" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-comments"></i></button>
                                     <a href="" th:href="@{/admin/services(q=${user.usuario})}" title="Planes" class="ml-3"><i class="fa fa-server"></i></a>
                                     <a href="" th:href="@{/admin/users/admin/{id}(id=${user.id})}" class="mx-3" title="Privilegios"><i class="fa fa-user-secret text-primary"></i></a>
-                                    <a href="" th:href="@{/admin/users/delete/{id}(id=${user.id})}" title="Borrar"><i class="fa fa-user-times text-danger"></i></a>
+                                    <a href="" th:href="@{/admin/users/delete/{id}(id=${user.id})}" title="Borrar" class="deleteUser"><i class="fa fa-user-times text-danger"></i></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -134,7 +158,7 @@
         </div>
     </div>
     <script th:replace="fragments/scripts :: script"></script>
-    <script th:src="@{~/js/adScript.js}"></script>
+    <script th:src="@{~/js/adminScript.js}"></script>
     <script th:inline="javascript">
         $(document).ready(function() {
             changePageAndSize();

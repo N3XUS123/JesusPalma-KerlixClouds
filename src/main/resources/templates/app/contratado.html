@@ -1,7 +1,31 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/head :: head"></head>
+<head>
+    <!-- Meta Tags -->
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Kerlix Clouds, web con los mejores servidores y hostings al mejor precio, baratos y de calidad. Gestiona aquí y ahora tus servicios" />
+    <title>Kerlix - Panel de control Usuario</title>
+
+    <!-- Google Fonts -->
+    <link th:href="@{//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700}" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}" />
+
+    <!-- Material Design Bootstrap -->
+    <link th:href="@{~/css/mdb.min.css}" rel="stylesheet">
+
+    <!-- AOS  -->
+    <link th:href="@{/webjars/github-com-michalsnik-aos/2.1.1/aos.css}" rel="stylesheet" />
+
+    <!-- CSS Adicional -->
+    <link th:href="@{~/css/style.css}" rel="stylesheet">
+</head>
 
 <body>
     <!-- Header -->
@@ -45,7 +69,7 @@
     <div class="modal fade right" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
         <div class="modal-dialog modal-side modal-bottom-right" role="document" id="ajaxContent">
             <div class="modal-content" th:fragment="order" th:if="${order!=null}">
-                <form th:object="${order}" th:action="@{/app/renovar}" method="GET" class="mx-0 w-100">
+                <form th:object="${order}" th:action="@{/app/renovar}" method="POST" class="mx-0 w-100">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">
                             Meses a renovar para <span th:text="${order.nombre}"></span>
@@ -82,7 +106,7 @@
                             </h4>
                             <p class="card-text "> Tipo: <span th:text="${orders.producto.tipo}"></span> </p>
                             <button type="button" class="btn btn-success btn-sm renovar" th:value="${orders.id}" data-toggle="modal" data-target="#exampleModal">Renovar</button>
-                            <a th:href="@{/app/deleteservice/{id}(id=${orders.id})}" class="btn btn-danger btn-sm ">Cancelar</a>
+                            <a th:href="@{/app/deleteservice/{id}(id=${orders.id})}" class="btn btn-danger btn-sm deleteService">Cancelar</a>
                         </div>
                         <div class="card-footer text-muted stylish-color white-text ">
                             <p class="mb-0">
@@ -145,6 +169,9 @@
         </div>
     </div>
     <script th:replace="fragments/scripts :: script"></script>
+    <script th:if="${renovarError}">
+        toastr.error('Error. No tienes saldo o el tiempo total contratado es superior a 2 años.');
+    </script>
 </body>
 
 </html>

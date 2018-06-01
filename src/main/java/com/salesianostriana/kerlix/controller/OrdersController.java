@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.kerlix.formbean.OrderProduct;
+import com.salesianostriana.kerlix.formbean.SupportEmail;
 import com.salesianostriana.kerlix.model.Orders;
 import com.salesianostriana.kerlix.model.User;
 import com.salesianostriana.kerlix.service.OrdersService;
@@ -80,16 +81,18 @@ public class OrdersController {
 		return "/app/contratado :: order";
 	}
 
-	@GetMapping("/renovar")
+	@PostMapping("/renovar")
 	public String renovar(Long id, OrderProduct o, Model model) {
 		User tempUs = (User) session.getAttribute("usuarioActual");
-		if (orderService.comprobarPrecio(orderService.findById(id), tempUs) || orderService.findById(id).getMeses()+o.getMeses() <= 24) {
+		if (orderService.comprobarPrecio(orderService.findById(id), tempUs) && orderService.findById(id).getMeses()+o.getMeses() <= 24) {
 			Orders or = orderService.renewOrder(orderService.findById(id), o.getMeses());
 			tempUs = userService.renewOrder(or, tempUs, o.getMeses());
 			return "redirect:/app";
 		} else {
 			model.addAttribute("sinSaldo");
 			model.addAttribute("loginUser", session.getAttribute("usuarioActual"));
+			model.addAttribute("email", new SupportEmail());
+			model.addAttribute("renovarError", "Error al renovar");
 			return "/app/contratado";
 		} 
 	}

@@ -32,6 +32,11 @@ $("button#addServer").click(function() {
     }
 });
 
+// USUARIOS
 $('button.adminMessage').click(function() {
     $("#ajaxContent").load("/admin/users/ajax/message/" + this.value);
+})
+
+$("a.deleteUser").click(function(){
+	return confirm("¿Está seguro de que desea eliminarlo?");
 })

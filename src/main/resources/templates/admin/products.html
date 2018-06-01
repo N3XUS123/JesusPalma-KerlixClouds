@@ -1,7 +1,31 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/head :: head"></head>
+<head>
+    <!-- Meta Tags -->
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Kerlix, web con los mejores servidores y hostings al mejor precio, baratos y de calidad. Gestión de productos" />
+    <title>Kerlix - Gestión de Productos</title>
+
+    <!-- Google Fonts -->
+    <link th:href="@{//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700}" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}" />
+
+    <!-- Material Design Bootstrap -->
+    <link th:href="@{~/css/mdb.min.css}" rel="stylesheet">
+
+    <!-- AOS  -->
+    <link th:href="@{/webjars/github-com-michalsnik-aos/2.1.1/aos.css}" rel="stylesheet" />
+
+    <!-- CSS Adicional -->
+    <link th:href="@{~/css/style.css}" rel="stylesheet">
+</head>
 
 <body>
     <header th:replace="fragments/adminHeader :: header"></header>

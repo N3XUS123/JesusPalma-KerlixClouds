@@ -19,7 +19,7 @@ public abstract class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String tipo;
+	private String tipo; // Nombre del producto
 	private int almacenamiento;
 	private int anchoBanda;
 	private double mensualidad;

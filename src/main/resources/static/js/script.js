@@ -52,11 +52,14 @@ $("button#contratar").click(function() {
     }
 });
 
-
 /*** PRODUCTOS ***/
 //Función AJAX al renovar un plan.
 $('button.renovar').click(function() {
     $("#ajaxContent").load("/app/ajax/order/" + this.value);
+})
+
+$("a.deleteService").click(function(){
+	return confirm("¿Está seguro de que desea eliminarlo?");
 })
 
 /*** LOGIN ***/
